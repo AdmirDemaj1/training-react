@@ -60,6 +60,7 @@
                 <input
                   type="number"
                   class="form-control"
+                  name="age"
                   id="age"
                   placeholder="Enter your age"
                   required
@@ -71,6 +72,7 @@
                 <input
                   type="text"
                   class="form-control datepicker"
+                  name="birthdate"
                   id="birthdate"
                   placeholder="Select your birthdate"
                   required
@@ -81,6 +83,7 @@
                 <input
                   type="text"
                   class="form-control"
+                  name="address"
                   id="address"
                   placeholder="Enter your address"
                   required
@@ -221,6 +224,10 @@
               </button>
             </form>
           </div>
+          <div id="step4" class="step-content">
+            <div class="h2">Submitted Information</div>
+            <div id="submittedInfo"></div>
+          </div>
         </div>
         <div class="col-md-6 d-flex align-items-center justify-content-center">
           <div class="image-container text-center">
@@ -258,14 +265,59 @@
             });
 
             formDataArray.push(formDataObject);
+
+            displaySubbmitedInformation(formDataArray)
           }
           console.log("formDataObject", formDataObject);
           document.getElementById("step3").classList.remove("active");
+          document.getElementById("step4").classList.add("active");
         });
+
+
+        function displaySubbmitedInformation(formDataArray){
+            var submittedInfoDiv = document.getElementById("submittedInfo")
+            submittedInfoDiv.innerHTML = "";
+
+            formDataArray.forEach(function (formData , index){
+                var stepHeading = document.createElement("h3");
+                stepHeading.textContent = "Step" + (index + 1);
+
+                submittedInfoDiv.appendChild(stepHeading);
+
+                console.log("formData", formData)
+
+                for(var key in formData){
+                    if(formData.hasOwnProperty(key)){
+                        var value = formData[key];
+                        var detail = document.createElement("div");
+                        var label = document.createElement("strong");
+                        label.textContent = key + ": ";
+                        detail.appendChild(label);
+
+                        detail.textContent +=value;
+
+                        submittedInfoDiv.appendChild(detail)
+
+                    }
+                }
+
+            })
+            
+        }
 
       document.querySelectorAll(".next").forEach(function (button) {
         button.addEventListener("click", function () {
+            var formData = {};
           var currentStep = button.closest(".step-content");
+            currentStep.querySelectorAll("input, select, textarea").forEach(function (input){
+                formData[input.name] = input.value;
+            })
+            //Shtoni logjiken per butonin previous per te mos i ber insert te dhenat ne array.
+            formDataArray.push(formData);
+            // After each time we click previous add the logic to remove the data.
+
+            console.log("formData", formData);
+
           currentStep.classList.remove("active");
           currentStep.nextElementSibling.classList.add("active");
         });
