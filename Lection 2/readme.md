@@ -36,3 +36,18 @@ https://www.freecodecamp.org/news/lets-learn-javascript-closures-66feb44f6a44/
 
 # Asynchronous JS
 https://www.freecodecamp.org/news/asynchronous-javascript/
+
+
+## Homework 1:
+
+- Krijoni nje inventory {id, quantity, name ...}
+- Shtoni te dhena
+- Kerkoni per nje inventory specifik
+- Update nje quantity egzistues per nje inventory
+- Shfaqni te gjithe inventoryn.
+
+- Type Aliases
+- Arrays
+- Object Properties
+- Array methods (find, filter, forEach ) 
+- Function (parameters...)

@@ -11,7 +11,7 @@ let hey;
 
 // optional params, default params, return values, voids , function parameters
 
-const add = (a: number = 10, b: number = 4, c: number | string = 6): void => {
+const add = (a: number = 10, b: number = 4, c: number | string = 77): void => {
     // let sum = a  + b;
     // return {
     //     sum
@@ -19,8 +19,9 @@ const add = (a: number = 10, b: number = 4, c: number | string = 6): void => {
     if(a && b) {
         console.log(a + b)
     }
+
 };
-add();
+let var1= add(10, 4);
 
 const minus = (a: number, b: number): number => {
     return a-b;
