@@ -25,22 +25,3 @@ kursi = 19;
 //Interfaces
 //default types
 // unknows types
-
-
-// currying
-function add(x, y) {
-    const complexLogic = 999 + 999;
-    setTimeout(100000);
-  }
-
-
-function add(x) {
-    const complexLogic = 999 + 999;
-    setTimeout(100000);
-    return function(y) {
-      return x + y;
-    };
-  }
-const addByThree = add(3);
-addByThree(7);
-
