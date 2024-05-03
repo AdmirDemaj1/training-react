@@ -51,3 +51,6 @@ https://www.freecodecamp.org/news/asynchronous-javascript/
 - Object Properties
 - Array methods (find, filter, forEach ) 
 - Function (parameters...)
+
+# Destructuring In Js
+https://www.freecodecamp.org/news/array-vs-object-destructuring-in-javascript/
