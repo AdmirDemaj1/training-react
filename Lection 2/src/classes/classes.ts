@@ -1,5 +1,3 @@
-// Here's a concise explanation of classes in JavaScript for your students:
-
 // Classes are like blueprints for creating objects.
 // Classes have properties (data) that describe the object, like the cookie's name ("Chocolate Chip") or its size.
 // Classes also have methods (functions) that act on the object's data, like a bake() method to cook the cookie.
