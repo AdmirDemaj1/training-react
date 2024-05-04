@@ -54,3 +54,13 @@ https://www.freecodecamp.org/news/asynchronous-javascript/
 
 # Destructuring In Js
 https://www.freecodecamp.org/news/array-vs-object-destructuring-in-javascript/
+
+
+
+## Detyre 2
+
+                            !!!!! Importanttttt !!!!!!!!
+
+    // Detyre vazhdoni logjiken e formes ne file finalProjectTS.ts
+
+    // Ne momentin qe keni perfunduar me logjiken e kesaj single Form mund te perdorni Generics per ta bere klasen  FormHandler reusable dhe per forma te tjera.
