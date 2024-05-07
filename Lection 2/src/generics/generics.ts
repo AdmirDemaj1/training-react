@@ -13,10 +13,10 @@
 
 // 1- Create the Generic Type
 
-// const addUID = <T>(obj: T) => {
-//         let uid = Math.floor(Math.random() * 100);
-//     return {...obj, uid}
-// }
+const addUID = <T>(obj: T) => {
+        let uid = Math.floor(Math.random() * 100);
+    return {...obj, uid}
+}
 
 
 // 2 - Make it more explicit so it can accept only objects
