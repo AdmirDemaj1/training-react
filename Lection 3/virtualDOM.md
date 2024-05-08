@@ -1,5 +1,11 @@
 # What is Virual DOM??
 
+# Purpose of the Virtual DOM
+
+1. Efficiency: The virtual DOM is a performance optimization technique. Directly manipulating the real DOM can be slow, especially for large or frequently changing UIs. By working with the virtual DOM first, React can efficiently calculate the minimal changes needed in the real DOM.
+2. Declarative Programming: The virtual DOM aligns with React's declarative approach. You describe the desired UI state, and React handles the updates. This makes your code more readable and maintainable.
+3. Batch Updates: React can group multiple virtual DOM updates into a single batch, further improving performance by minimizing DOM manipulations.
+
 
 ## vdom
 
