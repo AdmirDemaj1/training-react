@@ -1,17 +1,25 @@
-function Header() { 
-    return (
-      <header>
-        <img src="src/assets/cute-boy-avatar-png.webp" style={{width: 100}}/>
-        <h1>Introducing Myself</h1>
+import Header from "./components/Header/Header.jsx";
+import Tabs from "./components/Tabs.jsx";
 
-        <p>I am a happy programmer!!</p>
-      </header>
+//Single responsibility principle
+  function Post() {
+    return  <div> <Header/> 
+    
+    {/* <Tabs>{<div>
+      <button>Testtt</button></div>}</Tabs>  */}
+
+      <section id="examples">
+      <h2>My Knowledges</h2>
+      <menu>
+        <Tabs>React js</Tabs>
+        <Tabs>TypeScript</Tabs>
+        <Tabs>HTML</Tabs>
+        <Tabs>Hosting</Tabs>
+      </menu>
+      </section>
       
-    );
-  }
-
-  function App() {
-    return <Header/>
+      </div>  
+  
   }
   
   export default App;
