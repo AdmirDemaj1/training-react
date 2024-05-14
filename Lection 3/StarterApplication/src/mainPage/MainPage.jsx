@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import "./MainPage.css";
+
 
 import Header from "./components/Header/Header.jsx";
 import Tabs from "./components/Tabs.jsx";
@@ -8,7 +10,7 @@ import {faEllipsisV} from '@fortawesome/free-solid-svg-icons';
 import { KNOWLEDGE_DATA } from "./data.js";
 import ShowContent  from "./components/ShowContent.jsx";
 //Single responsibility principle
-  function App() {
+  function MainPage() {
    const [selectedTopic, setSelectedTopic] = useState(null);
   //  const [shopping, setShopping] = useState("skam"); 
   //  const [ graviteti, setGraviteti]= useState("kam rene")
@@ -44,7 +46,9 @@ import ShowContent  from "./components/ShowContent.jsx";
     // let check = 1 +1 ;
 
 
-    return  (<div> <Header/> 
+    return  (<>
+      
+       <Header/> 
     
     {/* <Tabs>{<div>
       <button>Testtt</button></div>}</Tabs>  */}
@@ -52,10 +56,10 @@ import ShowContent  from "./components/ShowContent.jsx";
       <section id="examples">
       <h2>My Knowledges</h2>
       <menu>
-        <Tabs  handleSelect={()=> handleTabClick("reactjs")} >React js</Tabs>
-        <Tabs handleSelect={()=> handleTabClick("typescript")}>TypeScript</Tabs>
-        <Tabs handleSelect={()=> handleTabClick("html")}>HTML</Tabs>
-        <Tabs handleSelect={()=> handleTabClick("hosting")}>Hosting</Tabs>
+        <Tabs isSelected={selectedTopic === "reactjs"} handleSelect={()=> handleTabClick("reactjs")} >React js</Tabs>
+        <Tabs isSelected={selectedTopic === "typescript"} handleSelect={()=> handleTabClick("typescript")}>TypeScript</Tabs>
+        <Tabs isSelected={selectedTopic === "html"} handleSelect={()=> handleTabClick("html")}>HTML</Tabs>
+        <Tabs isSelected={selectedTopic === "hosting"} handleSelect={()=> handleTabClick("hosting")}>Hosting</Tabs>
 
         {/* <button onClick={() => handleCokollata("kam blere")}>kam blere</button>
         <button onClick={() => handleCokollata("skam blere")}>skam blere</button>
@@ -94,8 +98,8 @@ import ShowContent  from "./components/ShowContent.jsx";
 
       </section>
       
-      </div>  
+      </>  
     )
   }
   
-  export default App;
+  export default MainPage;

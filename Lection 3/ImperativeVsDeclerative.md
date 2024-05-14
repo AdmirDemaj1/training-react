@@ -8,7 +8,7 @@ Example:
 
 ```JavaScript
 // Imperative Approach (Vanilla JavaScript)
-const numbers = [1, 2, 3, 4, 5, 6];
+const numbers = [1, 2, 3, 4, 5, 6, 2];
 const filteredNumbers = [];
 for (let i = 0; i < numbers.length; i++) {
   if (numbers[i] % 2 === 0) {

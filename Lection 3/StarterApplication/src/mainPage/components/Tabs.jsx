@@ -1,4 +1,4 @@
-function Tabs({children, handleSelect}){
+function Tabs({children, handleSelect , isSelected}){
     //Imperative VS Declerative Coding
     // document.getElementById("");
     // document.querySelector("button").addEventListener("click", () => {});
@@ -8,7 +8,7 @@ function Tabs({children, handleSelect}){
 
  return (
     <li>
-        <button onClick={handleSelect}>{children}</button>
+        <button className={isSelected ? 'active' : undefined} onClick={handleSelect}>{children}</button>
     </li>
  )
 }
