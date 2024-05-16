@@ -1,12 +1,12 @@
-- Create a button for the "game table"
+- Create a button for the "game table" :YES
 
 - Reuse this button 
   Acceptance Criteria:
-  1)  show it 9 times aplying also the styling so it shows in a grid way
+  1)  show it 9 times aplying also the styling so it shows in a grid way :YES
 
 - Add event listener for the button
     Acceptance Criteria:
-    1) console log the button index when clicked
+    1) console log the button index when clicked :YES
 
 - Display "X" when a button is clicked using conditional rendering from the value of the state.
 

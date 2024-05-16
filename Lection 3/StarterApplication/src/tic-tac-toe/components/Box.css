@@ -1,0 +1,19 @@
+.box {
+    background-color: aliceblue;
+    border: none;
+    border-radius: 10%;
+    width: 5rem;
+    height: 5rem;
+    text-align: center;
+    font-size: 5rem;
+    font-weight: bold;
+    margin: 0.5rem;
+}
+
+.x {
+    color: brown;
+}
+
+.o {
+    color: blue;
+}
