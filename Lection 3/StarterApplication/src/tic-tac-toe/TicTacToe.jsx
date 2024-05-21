@@ -51,6 +51,19 @@ function TicTacToe() {
         setBoard(Array(9).fill(null));
       }
     }
+// Check if all the buttons were clicked
+    const allBoxChecked = updatedBoard.every((element) => element !== null)
+
+
+    console.log("allBoxChecked",allBoxChecked)
+
+
+    if(allBoxChecked && !winner){
+      setBoard(Array(9).fill(null))
+    }
+    
+
+
 
     //Check if all the button were clicked
     const allBoxesFilled = updatedBoard.every((element) => element !== null);
@@ -59,7 +72,7 @@ function TicTacToe() {
     //Which means it is a draw and we need to reset the playing board
     if (allBoxesFilled && !winner) {
       setBoard(Array(9).fill(null));
-    }
+    } 
     // Update player for the next turn
     setXPlaying(!xPlaying);
   };
@@ -76,7 +89,11 @@ function TicTacToe() {
 
   return (
     <div>
-      <ScoreBoard scores={scores} xPlaying={xPlaying} />
+      {/* <ScoreBoard scores={scores} xPlaying={xPlaying} /> */}
+       <div className="scoreboard"> 
+      <ScoreBoard player="X" score={scores.XScore} isActive={xPlaying} /> 
+      <ScoreBoard player="O" score={scores.OScore} isActive={!xPlaying} /> 
+      </div>
       <Board board={board} onClick={handleBoxClick} />
     </div>
   );

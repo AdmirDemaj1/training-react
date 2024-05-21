@@ -12,6 +12,24 @@
   font-weight: bold;
 }
 
+.score input {
+  font: inherit;
+  font-size: 1rem;
+  width: 5rem;
+  border: none;
+  padding: 0.5rem;
+  font-weight: 600;
+  background-color: #5396c3a4;
+}
+
+.edit{
+  background: none;
+  border: none;
+  color: #007bff;
+  font-size: 1rem;
+  margin-left: 0.5rem;
+}
+
 .score {
   width: 100%;
   text-align: center;
