@@ -5,7 +5,7 @@
 // vut you dont want that info to trigger a rerender.
 
 // 1. Accessing/Interaction with DOM elements
-// Optimisng performance in case of autocomplete example
+// Optimising performance in case of autocomplete example
 // 2. Animation, Focus, Transitions
 // 3. Managing Timer and Intervals
 
