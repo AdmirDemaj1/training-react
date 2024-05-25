@@ -2,12 +2,16 @@ import React, { useState, useEffect, useRef, useLayoutEffect } from "react";
 import { useFetch } from "./customHooks/fetchHook";
 import "./BookLibrary.css";
 
+const BOOKS_URL =
+  "https://openlibrary.org/people/mekBot/books/want-to-read.json";
+
 const BookLibrary = () => {
+  // We can create Custom Hooks For:
   // useFetch: to handle api calls and managing erros and loading states
   // uBookDetails: To fetch book details when a book is selected.
   // useFilter: To handle filtering of reading logs based on user input
 
-  const [books, setBooks] = useState([]);
+  // const [books, setBooks] = useState([]);
   const [bookDetails, setBookDetails] = useState(null);
   //   const [loading, setLoading] = useState(true);
   //   const [error, setError] = useState(null);
@@ -15,17 +19,7 @@ const BookLibrary = () => {
   const [filterValue, setFilterValue] = useState("");
   const valueOfFilter = useRef(null);
 
-  const { data, loading, error } = useFetch(
-    "https://openlibrary.org/people/mekBot/books/want-to-read.json"
-  );
-
-  console.log(data, loading, error);
-
-  //    useEffect(() => {
-  //         const {data, loading, error} = useFetch("cats,url")
-  //         if(error){}
-
-  //     }, [])
+  const { data, loading, error } = useFetch(BOOKS_URL);
 
   useEffect(() => {
     if (!selectedBook) return;
