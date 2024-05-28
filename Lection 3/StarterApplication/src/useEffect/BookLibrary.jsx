@@ -1,49 +1,25 @@
-import React, { useState, useEffect, useRef, useLayoutEffect } from "react";
-import { useFetch } from "./customHooks/fetchHook";
+import React, { useState, useRef } from "react";
+import { useFetch, useFetchDetails, useFilterBook } from "./customHooks/fetchHook";
 import "./BookLibrary.css";
 
 const BOOKS_URL =
   "https://openlibrary.org/people/mekBot/books/want-to-read.json";
 
 const BookLibrary = () => {
-  // We can create Custom Hooks For:
-  // useFetch: to handle api calls and managing erros and loading states
-  // uBookDetails: To fetch book details when a book is selected.
-  // useFilter: To handle filtering of reading logs based on user input
+    // useFetch: to handle api calls and managing erros and loading states
+    // uBookDetails: To fetch book details when a book is selected.
+    // useFilter: To handle filtering of reading logs based on user input
 
-  // const [books, setBooks] = useState([]);
-  const [bookDetails, setBookDetails] = useState(null);
-  //   const [loading, setLoading] = useState(true);
-  //   const [error, setError] = useState(null);
   const [selectedBook, setSelectedBook] = useState(null);
   const [filterValue, setFilterValue] = useState("");
   const valueOfFilter = useRef(null);
 
   const { data, loading, error } = useFetch(BOOKS_URL);
+  const title = selectedBook && selectedBook !== null ? selectedBook.title.replace(" ", "+"): "";
+  const { details, setDetails } = useFetchDetails(`https://openlibrary.org/search.json?q=${title}`);
+  const { filteredItems } = useFilterBook(data ? data.reading_log_entries : [], filterValue);
 
-  useEffect(() => {
-    if (!selectedBook) return;
-    const fetchBookDetails = async () => {
-      try {
-        const titleConfigured = selectedBook.title.replace(" ", "+");
-        const fetchedData = await fetch(
-          `https://openlibrary.org/search.json?q=${titleConfigured}`
-        );
-        if (!fetchedData.ok) {
-          throw new Error("Network response was not ok");
-        }
-        const data = await fetchedData.json();
-        if (data.docs && data.docs.length > 0) {
-          setBookDetails(data);
-        } else {
-          setBookDetails(null);
-        }
-      } catch (error) {
-        console.log("Error message is", error.message);
-      }
-    };
-    fetchBookDetails();
-  }, [selectedBook]);
+
 
   const handleSelectBook = (title) => {
     setSelectedBook(title);
@@ -51,27 +27,28 @@ const BookLibrary = () => {
 
   const handleCloseModal = () => {
     setSelectedBook(null);
-    setBookDetails(null);
+    setDetails(null);
   };
 
   const handleSearchClick = () => {
     setFilterValue(valueOfFilter.current);
   };
 
-  if (loading || !data) {
-    return <div className="loading">Loadingg.....</div>;
-  }
+ 
+    if(loading && !data) {
+        return <div className='loading'>Loadingg.....</div>
+    }
 
   if (error) {
     return <div className="error">Error: {error}</div>;
   }
 
   // We were missing: data.reading_log_entries and we had only data. That triggered an error.
-  const filteredBooks = data.reading_log_entries
-    ? data.reading_log_entries.filter((book) =>
-        book.work.title.toLowerCase().includes(filterValue.toLowerCase())
-      )
-    : [];
+  // const filteredBooks = data.reading_log_entries
+  //   ? data.reading_log_entries.filter((book) =>
+  //       book.work.title.toLowerCase().includes(filterValue.toLowerCase())
+  //     )
+  //   : [];
 
   return (
     <div className="container">
@@ -96,7 +73,7 @@ const BookLibrary = () => {
           <th>Cover Image</th>
         </thead>
         <tbody>
-          {filteredBooks.map((book) => (
+          {filteredItems.map((book) => (
             <tr key={book.work.key}>
               <button onClick={() => handleSelectBook(book.work)}>
                 Select
@@ -120,9 +97,9 @@ const BookLibrary = () => {
           ))}
         </tbody>
       </table>
-      {selectedBook && bookDetails && (
+      {selectedBook && details.docs[0] && (
         <BookDetailsModal
-          bookDetails={bookDetails}
+          bookDetails={details}
           onClose={handleCloseModal}
         />
       )}
