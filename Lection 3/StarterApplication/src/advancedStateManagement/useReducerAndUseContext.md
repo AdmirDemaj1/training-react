@@ -6,3 +6,7 @@
  - Theme Settings, Translation
  - Authentication status
 
+Links for use Context:
+
+# https://react.dev/reference/react/useContext
+# https://www.freecodecamp.org/news/how-to-use-react-context/
