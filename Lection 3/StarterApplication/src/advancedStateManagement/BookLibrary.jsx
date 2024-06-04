@@ -1,23 +1,18 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useFetch, useFetchDetails, useFilterBook } from "../hooks/customHooks/fetchHook";
 import "./BookLibrary.css";
-import { RatingProvider, useRating } from "./useContextRating";
-import {  useTheme } from "./useContextTheme";
 
 const BOOKS_URL =
   "https://openlibrary.org/people/mekBot/books/want-to-read.json";
 
-const BookLibrary = () => {
+const BookLibraryWithContext = () => {
     // useFetch: to handle api calls and managing erros and loading states
     // uBookDetails: To fetch book details when a book is selected.
     // useFilter: To handle filtering of reading logs based on user input
 
   const [selectedBook, setSelectedBook] = useState(null);
   const [filterValue, setFilterValue] = useState("");
-  // const [theme, setTheme] = useState('light');
-  const {theme,toggleTheme} = useTheme();
-
-  // const [ratings, setRatings] = useState({});
+  const [ratings, setRatings] = useState({});
   const valueOfFilter = useRef(null);
 
   const { data, loading, error } = useFetch(BOOKS_URL);
@@ -40,15 +35,12 @@ const BookLibrary = () => {
     setFilterValue(valueOfFilter.current);
   };
 
-//  const handleRatingChange = (bookId, rating) => {
-//   setRatings((prevRating ) => ({
-//     ...prevRating,
-//     [bookId]: rating
-//   }))
-//  }
-// const toggleTheme = () => {
-//   setTheme(theme === 'light' ? 'dark' : 'light');
-// };
+ const handleRatingChange = (bookId, rating) => {
+  setRatings((prevRating ) => ({
+    ...prevRating,
+    [bookId]: rating
+  }))
+ }
 
 
 
@@ -69,11 +61,8 @@ const BookLibrary = () => {
   //   : [];
 
   return (
-
-    <RatingProvider>
-    <div className={`container ${theme === "dark" ? 'dark': ''}`}>
-    <button onClick={toggleTheme}>{theme === 'light' ? 'Dark Mode' : 'Light Mode'}</button>{' '}
-      <h1 className={`heading ${theme === "dark" ? 'dark': ''}`}>Book Shop Reading Logs</h1>
+    <div className="container">
+      <h1 className="heading">Book Shop Reading Logs</h1>
       <div className="autocomplete">
         <input
           type="text"
@@ -92,7 +81,6 @@ const BookLibrary = () => {
           <th>First Publish Year</th>
           <th>Logged Date</th>
           <th>Cover Image</th>
-          <th>Review</th>
         </thead>
         <tbody>
           {filteredItems.map((book) => (
@@ -116,7 +104,7 @@ const BookLibrary = () => {
                 )}
               </td>
               <td>
-                <ShowRatingWrapper bookId={book.work.key}/>
+                <ShowRatingWrapper bookId={book.work.key} rating={ratings[book.work.key] || 0} handleRatingChange={handleRatingChange} />
               </td>
             </tr>
           ))}
@@ -129,8 +117,6 @@ const BookLibrary = () => {
         />
       )}
     </div>
-    </RatingProvider>
-    
   );
 };
 
@@ -167,30 +153,22 @@ const BookDetailsModal = ({ bookDetails, onClose }) => {
   );
 };
 
-const ShowRatingWrapper = ({bookId }) => {
+const ShowRatingWrapper = ({bookId, rating, handleRatingChange }) => {
   useEffect(() => {
     setTimeout(() => {
       console.log("Hello, World!");
     }, 3000);
   })
-
-
  
   return (
     <>
-    <Rating bookId={bookId} />
+    Expensive list.....
+    <Rating bookId={bookId} rating={rating} handleRatingChange={handleRatingChange}/>
     </>
   )
 }
 
-const Rating = ({bookId}) => {
- const {ratings ,handleRatingChange } = useRating();
- const {theme } = useTheme();
- const rating = ratings[bookId] || 0;
-
-
- console.log("current theme",theme);
-
+const Rating = ({bookId, rating, handleRatingChange }) => {
 return (
   <div className="rating">
     {[1,2,3,4,5].map((star) => (
@@ -198,7 +176,6 @@ return (
       &#9733;
       </span>
     ))}
-
   </div>
 )
 }
@@ -209,4 +186,4 @@ return (
 
 
 
-export default BookLibrary;
+export default BookLibraryWithContext;

@@ -8,5 +8,10 @@
 
 Links for use Context:
 
+
 # https://react.dev/reference/react/useContext
 # https://www.freecodecamp.org/news/how-to-use-react-context/
+
+How to Fix useContext Performance Issues:
+
+ #https://jherr2020.medium.com/fixing-usecontext-performance-issues-bfc695f48192
