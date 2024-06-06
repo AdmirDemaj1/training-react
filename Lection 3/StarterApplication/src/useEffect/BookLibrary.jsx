@@ -3,11 +3,14 @@ import { useFetch, useFetchDetails, useFilterBook } from "../hooks/customHooks/f
 import "./BookLibrary.css";
 import { RatingProvider, useRating } from "./useContextRating";
 import {  useTheme } from "./useContextTheme";
+import { useNavigate } from 'react-router-dom';
+import Header from "../react-router/components/Header";
 
 const BOOKS_URL =
   "https://openlibrary.org/people/mekBot/books/want-to-read.json";
 
 const BookLibrary = () => {
+  const navigate = useNavigate();
     // useFetch: to handle api calls and managing erros and loading states
     // uBookDetails: To fetch book details when a book is selected.
     // useFilter: To handle filtering of reading logs based on user input
@@ -27,8 +30,10 @@ const BookLibrary = () => {
 
 
 
-  const handleSelectBook = (title) => {
-    setSelectedBook(title);
+  const handleSelectBook = (bookId) => {
+    console.log("bookId",bookId)
+    // setSelectedBook(title);
+    navigate(`/books/${bookId}`);
   };
 
   const handleCloseModal = () => {
@@ -72,6 +77,8 @@ const BookLibrary = () => {
 
     <RatingProvider>
     <div className={`container ${theme === "dark" ? 'dark': ''}`}>
+      {/* <Header/> */}
+      
     <button onClick={toggleTheme}>{theme === 'light' ? 'Dark Mode' : 'Light Mode'}</button>{' '}
       <h1 className={`heading ${theme === "dark" ? 'dark': ''}`}>Book Shop Reading Logs</h1>
       <div className="autocomplete">
@@ -97,7 +104,7 @@ const BookLibrary = () => {
         <tbody>
           {filteredItems.map((book) => (
             <tr key={book.work.key}>
-              <button onClick={() => handleSelectBook(book.work)}>
+              <button onClick={() => handleSelectBook(book.work.cover_id )}>
                 Select
               </button>
               <td>{book.work.title}</td>
