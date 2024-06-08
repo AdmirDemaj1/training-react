@@ -30,6 +30,8 @@ router.get("/:id", async (req, res, next) => {
 router.post("/", async (req, res, next) => {
   const data = req.body;
 
+  console.log("dataaa heree", data)
+
   let errors = {};
 
   if (!isValidText(data.title)) {
@@ -40,11 +42,11 @@ router.post("/", async (req, res, next) => {
     errors.description = "Invalid description.";
   }
 
-  if (!isValidDate(data.date)) {
+  if (!isValidDate(data.publishYear)) {
     errors.date = "Invalid date.";
   }
 
-  if (!isValidImageUrl(data.image)) {
+  if (!isValidImageUrl(data.coverImage)) {
     errors.image = "Invalid image.";
   }
 

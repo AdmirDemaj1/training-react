@@ -6,7 +6,7 @@ import Header from "./components/Header";
 import NotFound from "./components/NotFound";
 import Landing from "./pages/Landing";
 // Step 1 imort the hook for declaring the routes
-import { createBrowserRouter, RouterProvider  } from "react-router-dom";
+import { createBrowserRouter, RouterProvider, useNavigate , redirect } from "react-router-dom";
 
 
 // Absolute path approach
@@ -27,6 +27,7 @@ const router =  createBrowserRouter([
     {path:"books", element:<BooksNavigation/> , children: [
         {index: true, element: <BookLibrary/>, loader: fetchBooksList },
         {path:"createNew", element:<BookForm/> , action: async ({request, params}) => {
+          
             const formDataToSubmit = await request.formData();
             const bookData = {
                 title: formDataToSubmit.get('title'),
@@ -37,11 +38,13 @@ const router =  createBrowserRouter([
                 loggedDate:  formDataToSubmit.get('loggedDate'),
                 author: formDataToSubmit.get('author')
             }
-            const response = await fetch('http://localhost:8080/book',
+            await fetch('http://localhost:8080/books',
                  {method: 'POST', body: JSON.stringify(bookData),
                 headers: {'Content-Type': 'application/json'}})
 
-            console.log("bookData", bookData)
+                return redirect('/books');
+              
+
         }},
         {path:":bookId", element:<BookDetails/>, loader: fetchBookDetails },
     ]},

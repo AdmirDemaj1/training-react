@@ -42,7 +42,7 @@ function BookForm({ method, event }) {
         <button type="button" onClick={cancelHandler}>
           Cancel
         </button>
-        <button>Save</button>
+        <button >Save</button>
       </div>
     </Form>
   );
