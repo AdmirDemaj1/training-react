@@ -3,6 +3,7 @@ import './Header.css';
 import { Link, NavLink, Outlet } from 'react-router-dom';
 
 const Header = () => {
+
   return (
     <>
       <header className="header">

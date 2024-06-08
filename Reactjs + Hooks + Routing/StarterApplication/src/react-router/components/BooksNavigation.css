@@ -1,0 +1,51 @@
+:root {
+    --color-gray-500: #a0aec0;
+    --color-gray-900: #1a202c;
+    --color-primary-600: #3182ce;
+    --color-primary-700: #2b6cb0;
+    --color-white: #ffffff;
+  }
+  
+  .header {
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .list {
+    display: flex;
+    gap: 1rem;
+    list-style-type: none; /* Remove default list markers */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+  }
+  
+  .list a {
+    background-color: var(--color-gray-500);
+    color: var(--color-white);
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    border: 1px solid transparent;
+    transition:
+      background-color 0.3s ease,
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .list a:hover,
+  .list a:active,
+  .list a.active {
+    background-color: var(--color-primary-600);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+  }
+  
+  .list a:active {
+    background-color: var(--color-primary-700);
+    transform: translateY(0);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }

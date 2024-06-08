@@ -12,7 +12,7 @@ const router = express.Router();
 router.get("/", async (req, res, next) => {
   try {
     const books = await getAll();
-    res.json({ books: books });
+      res.json({ books: books });
   } catch (error) {
     next(error);
   }

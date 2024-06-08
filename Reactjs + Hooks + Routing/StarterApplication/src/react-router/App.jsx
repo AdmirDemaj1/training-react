@@ -1,5 +1,7 @@
-import BookLibrary from "../useEffect/BookLibrary";
-import BookDetails from "./components/BookDetails";
+import BookLibrary, {loader as fetchBooksList} from "../useEffect/BookLibrary";
+import BookDetails, {loader as fetchBookDetails} from "./components/BookDetailsPage";
+import BookForm from "./components/BookForm";
+import BooksNavigation from "./components/BooksNavigation";
 import Header from "./components/Header";
 import NotFound from "./components/NotFound";
 import Landing from "./pages/Landing";
@@ -7,11 +9,43 @@ import Landing from "./pages/Landing";
 import { createBrowserRouter, RouterProvider  } from "react-router-dom";
 
 
+// Absolute path approach
+// const router =  createBrowserRouter([
+//     {path:'/parent', element:<Header/>, children: [
+//     {path:'/parent', element:<Landing />},
+//     {path:"/parent/books", element:<BookLibrary/> },
+//     {path:"/parent/books/:bookId", element:<BookDetails/> }
+//     ],
+//     errorElement: <NotFound/> },
+// ])
+
+
+//Relative paths
 const router =  createBrowserRouter([
     {path:'/', element:<Header/>, children: [
-    {path:'/', element:<Landing />},
-    {path:"/books", element:<BookLibrary/> },
-    {path:"/books/:bookId", element:<BookDetails/> }
+    {index: true, element:<Landing />},
+    {path:"books", element:<BooksNavigation/> , children: [
+        {index: true, element: <BookLibrary/>, loader: fetchBooksList },
+        {path:"createNew", element:<BookForm/> , action: async ({request, params}) => {
+            const formDataToSubmit = await request.formData();
+            const bookData = {
+                title: formDataToSubmit.get('title'),
+                description: formDataToSubmit.get('description'),
+                price: formDataToSubmit.get('price'),
+                coverImage: formDataToSubmit.get('image'),
+                publishYear: formDataToSubmit.get('date'),
+                loggedDate:  formDataToSubmit.get('loggedDate'),
+                author: formDataToSubmit.get('author')
+            }
+            const response = await fetch('http://localhost:8080/book',
+                 {method: 'POST', body: JSON.stringify(bookData),
+                headers: {'Content-Type': 'application/json'}})
+
+            console.log("bookData", bookData)
+        }},
+        {path:":bookId", element:<BookDetails/>, loader: fetchBookDetails },
+    ]},
+    
     ],
     errorElement: <NotFound/> },
 ])
