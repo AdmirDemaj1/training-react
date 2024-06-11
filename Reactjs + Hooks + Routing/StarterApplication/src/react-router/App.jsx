@@ -1,5 +1,5 @@
 import BookLibrary, {loader as fetchBooksList} from "../useEffect/BookLibrary";
-import BookDetails, {loader as fetchBookDetails} from "./components/BookDetailsPage";
+import BookDetails, {loader as fetchBookDetails, action as deleteCurrentBook} from "./components/BookDetailsPage";
 import BookForm from "./components/BookForm";
 import BooksNavigation from "./components/BooksNavigation";
 import Header from "./components/Header";
@@ -27,7 +27,6 @@ const router =  createBrowserRouter([
     {path:"books", element:<BooksNavigation/> , children: [
         {index: true, element: <BookLibrary/>, loader: fetchBooksList },
         {path:"createNew", element:<BookForm/> , action: async ({request, params}) => {
-          
             const formDataToSubmit = await request.formData();
             const bookData = {
                 title: formDataToSubmit.get('title'),
@@ -43,10 +42,8 @@ const router =  createBrowserRouter([
                 headers: {'Content-Type': 'application/json'}})
 
                 return redirect('/books');
-              
-
         }},
-        {path:":bookId", element:<BookDetails/>, loader: fetchBookDetails },
+        {path:":bookId", element:<BookDetails/>, loader: fetchBookDetails , action: deleteCurrentBook  },
     ]},
     
     ],

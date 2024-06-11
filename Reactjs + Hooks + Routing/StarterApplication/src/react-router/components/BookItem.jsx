@@ -1,9 +1,17 @@
 import React, { useEffect } from 'react';
 import classes from './BookItem.module.css';
-import {Link, NavLink, useParams} from 'react-router-dom';
+import {Link, NavLink, useParams, useSubmit} from 'react-router-dom';
 
 const BookItem = ({book}) => {
   console.log("heyyyyy")
+  const submit = useSubmit();
+
+  function handleDeleteFunction() {
+    const process = window.confirm(`Are you sure you want to delete ${book.title}`)
+    if(process){
+      submit(null, {method: 'delete'})
+    }
+  }
     // const params = useParams();
     //Homework Fetch data based on the id of the book that user selected
     // useEffect(()=> {},[params.bookId])
@@ -18,7 +26,7 @@ const BookItem = ({book}) => {
         <menu className={classes.actions}>
           <a href="edit">Edit</a>
           <Link to="..">Go to List</Link>
-          <button >Delete</button>
+          <button onClick={handleDeleteFunction}>Delete</button>
         </menu>
       </article>
     );

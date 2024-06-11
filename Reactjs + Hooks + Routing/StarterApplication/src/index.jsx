@@ -12,6 +12,14 @@ import "./index.css";
 import { ThemeProvider } from "./useEffect/useContextTheme.jsx";
 // import Test from "./useEffect/Test.jsx";
 import App from "./react-router/App.jsx";
+import MuiDashboard from "./mui/MuiDashboard.jsx";
 
 const entryPoint = document.getElementById("root");
-ReactDOM.createRoot(entryPoint).render(<ThemeProvider><App/></ThemeProvider>);
+ReactDOM.createRoot(entryPoint).render(
+<MuiDashboard/>
+);
+
+// ReactDOM.createRoot(entryPoint).render(
+//     {/* <ThemeProvider><App/></ThemeProvider> */}
+    
+//     );

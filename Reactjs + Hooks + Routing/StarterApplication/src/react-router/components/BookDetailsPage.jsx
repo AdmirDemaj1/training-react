@@ -1,6 +1,6 @@
 import React from 'react';
 import './Footer.css';
-import { useLoaderData, useParams } from 'react-router-dom';
+import { redirect, useLoaderData, useParams } from 'react-router-dom';
 import BookItem from './BookItem';
 
 const BookDetails = () => {
@@ -24,4 +24,18 @@ export async function loader({request, params}) {
     } else{
         return response;
     }
+}
+
+export async function action({request, params}) {
+
+  console.log(request.method, params.bookId)
+  const bookId = params.bookId;
+  const response = await fetch('http://localhost:8080/books/' + bookId, {
+    method: request.method
+  });
+
+  if(!response.ok){
+      //....
+  }
+  return redirect("/books")
 }

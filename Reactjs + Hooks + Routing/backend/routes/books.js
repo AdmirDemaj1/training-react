@@ -103,6 +103,7 @@ router.patch("/:id", async (req, res, next) => {
 
 router.delete("/:id", async (req, res, next) => {
   try {
+    console.log("delete was triggered",typeof req.params.id)
     await remove(req.params.id);
     res.json({ message: "Book deleted." });
   } catch (error) {

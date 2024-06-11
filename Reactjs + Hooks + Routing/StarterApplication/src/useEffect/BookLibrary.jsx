@@ -214,9 +214,6 @@ export default BookLibrary;
 
 export async function loader() {
     const response = await fetch('http://localhost:8080/books')
-
-    
-
     if(!response.ok){
         //...
     }{
