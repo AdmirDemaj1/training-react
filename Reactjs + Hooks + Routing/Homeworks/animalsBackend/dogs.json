@@ -1,0 +1,104 @@
+{
+  "dogs": [
+    {
+      "id": "1a2b3c4d-5678-9e0f-1234-56789abcdef0",
+      "name": "Golden Retriever",
+      "breed": "Golden Retriever",
+      "description": "Friendly, intelligent, and devoted. Golden Retrievers are known for their friendly and tolerant attitude.",
+      "price": 1200.0,
+      "coverImage": "https://www.akc.org/wp-content/uploads/2017/11/Golden-Retriever-On-White-01.jpg",
+      "loggedDate": "2024-06-10",
+      "birthYear": "2023"
+    },
+    {
+      "id": "2b3c4d5e-6789-0f12-3456-789abcdef012",
+      "name": "Labrador Retriever",
+      "breed": "Labrador Retriever",
+      "description": "Friendly, outgoing, and high-spirited. Labradors are famously friendly and make great family pets.",
+      "price": 1100.0,
+      "coverImage": "https://www.akc.org/wp-content/uploads/2017/11/Labrador-Retriever-On-White-01.jpg",
+      "loggedDate": "2024-06-10",
+      "birthYear": "2023"
+    },
+    {
+      "id": "3c4d5e6f-7890-1f23-4567-89abcdef0123",
+      "name": "German Shepherd",
+      "breed": "German Shepherd",
+      "description": "Confident, courageous, and smart. German Shepherds are highly versatile working dogs.",
+      "price": 1300.0,
+      "coverImage": "https://www.akc.org/wp-content/uploads/2017/11/German-Shepherd-On-White-01.jpg",
+      "loggedDate": "2024-06-10",
+      "birthYear": "2023"
+    },
+    {
+      "id": "4d5e6f7g-8901-2f34-5678-9abcdef01234",
+      "name": "Bulldog",
+      "breed": "Bulldog",
+      "description": "Docile, willful, and friendly. Bulldogs are calm and courageous.",
+      "price": 1500.0,
+      "coverImage": "https://www.akc.org/wp-content/uploads/2017/11/Bulldog-On-White-01.jpg",
+      "loggedDate": "2024-06-10",
+      "birthYear": "2023"
+    },
+    {
+      "id": "5e6f7g8h-9012-3f45-6789-abcdef012345",
+      "name": "Beagle",
+      "breed": "Beagle",
+      "description": "Curious, friendly, and merry. Beagles are known for their excellent tracking abilities.",
+      "price": 900.0,
+      "coverImage": "https://www.akc.org/wp-content/uploads/2017/11/Beagle-On-White-01.jpg",
+      "loggedDate": "2024-06-10",
+      "birthYear": "2023"
+    },
+    {
+      "id": "6f7g8h9i-0123-4f56-7890-bcdef0123456",
+      "name": "Poodle",
+      "breed": "Poodle",
+      "description": "Active, proud, and very smart. Poodles are known for their distinctive appearance and intelligence.",
+      "price": 1400.0,
+      "coverImage": "https://www.akc.org/wp-content/uploads/2017/11/Poodle-On-White-01.jpg",
+      "loggedDate": "2024-06-10",
+      "birthYear": "2023"
+    },
+    {
+      "id": "7g8h9i0j-1234-5f67-8901-cdef01234567",
+      "name": "Siberian Husky",
+      "breed": "Siberian Husky",
+      "description": "Loyal, mischievous, and outgoing. Huskies are known for their endurance and friendly demeanor.",
+      "price": 1000.0,
+      "coverImage": "https://www.akc.org/wp-content/uploads/2017/11/Siberian-Husky-On-White-01.jpg",
+      "loggedDate": "2024-06-10",
+      "birthYear": "2023"
+    },
+    {
+      "id": "8h9i0j1k-2345-6f78-9012-def012345678",
+      "name": "Dachshund",
+      "breed": "Dachshund",
+      "description": "Curious, friendly, and spunky. Dachshunds are known for their unique shape and lively personality.",
+      "price": 800.0,
+      "coverImage": "https://www.akc.org/wp-content/uploads/2017/11/Dachshund-On-White-01.jpg",
+      "loggedDate": "2024-06-10",
+      "birthYear": "2023"
+    },
+    {
+      "id": "9i0j1k2l-3456-7f89-0123-ef0123456789",
+      "name": "Pomeranian",
+      "breed": "Pomeranian",
+      "description": "Inquisitive, bold, and lively. Pomeranians are small in size but big in personality.",
+      "price": 900.0,
+      "coverImage": "https://www.akc.org/wp-content/uploads/2017/11/Pomeranian-On-White-01.jpg",
+      "loggedDate": "2024-06-10",
+      "birthYear": "2023"
+    },
+    {
+      "id": "0j1k2l3m-4567-8f90-1234-f01234567890",
+      "name": "Chihuahua",
+      "breed": "Chihuahua",
+      "description": "Charming, graceful, and sassy. Chihuahuas are known for their tiny size and large personality.",
+      "price": 700.0,
+      "coverImage": "https://www.akc.org/wp-content/uploads/2017/11/Chihuahua-On-White-01.jpg",
+      "loggedDate": "2024-06-10",
+      "birthYear": "2023"
+    }
+  ]
+}

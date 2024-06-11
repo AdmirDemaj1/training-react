@@ -1,0 +1,104 @@
+{
+  "cats": [
+    {
+      "id": "1a2b3c4d-5678-9e0f-1234-56789abcdef0",
+      "name": "Persian Cat",
+      "breed": "Persian",
+      "description": "Persian cats are known for their long fur, round face, and docile temperament.",
+      "price": 800.0,
+      "coverImage": "https://cdn2.thecatapi.com/images/0XYvRd7oD.jpg",
+      "loggedDate": "2024-06-10",
+      "birthYear": "2023"
+    },
+    {
+      "id": "2b3c4d5e-6789-0f12-3456-789abcdef012",
+      "name": "Maine Coon",
+      "breed": "Maine Coon",
+      "description": "Maine Coons are large, friendly cats known for their intelligence and playful nature.",
+      "price": 1000.0,
+      "coverImage": "https://cdn2.thecatapi.com/images/HT2jV0X5T.jpg",
+      "loggedDate": "2024-06-10",
+      "birthYear": "2023"
+    },
+    {
+      "id": "3c4d5e6f-7890-1f23-4567-89abcdef0123",
+      "name": "Siamese Cat",
+      "breed": "Siamese",
+      "description": "Siamese cats are known for their striking blue eyes, short coat, and sociable nature.",
+      "price": 700.0,
+      "coverImage": "https://cdn2.thecatapi.com/images/yI3MH1IZG.jpg",
+      "loggedDate": "2024-06-10",
+      "birthYear": "2023"
+    },
+    {
+      "id": "4d5e6f7g-8901-2f34-5678-9abcdef01234",
+      "name": "Bengal Cat",
+      "breed": "Bengal",
+      "description": "Bengal cats are known for their leopard-like spots and energetic, playful behavior.",
+      "price": 1200.0,
+      "coverImage": "https://cdn2.thecatapi.com/images/O3btzLlsO.jpg",
+      "loggedDate": "2024-06-10",
+      "birthYear": "2023"
+    },
+    {
+      "id": "5e6f7g8h-9012-3f45-6789-abcdef012345",
+      "name": "British Shorthair",
+      "breed": "British Shorthair",
+      "description": "British Shorthairs are known for their dense coat, round face, and calm demeanor.",
+      "price": 900.0,
+      "coverImage": "https://cdn2.thecatapi.com/images/5B16QwTbu.jpg",
+      "loggedDate": "2024-06-10",
+      "birthYear": "2023"
+    },
+    {
+      "id": "6f7g8h9i-0123-4f56-7890-bcdef0123456",
+      "name": "Sphynx Cat",
+      "breed": "Sphynx",
+      "description": "Sphynx cats are known for their hairless appearance, friendly nature, and high energy.",
+      "price": 1300.0,
+      "coverImage": "https://cdn2.thecatapi.com/images/41xF7ah3S.jpg",
+      "loggedDate": "2024-06-10",
+      "birthYear": "2023"
+    },
+    {
+      "id": "7g8h9i0j-1234-5f67-8901-cdef01234567",
+      "name": "Ragdoll Cat",
+      "breed": "Ragdoll",
+      "description": "Ragdoll cats are known for their large size, blue eyes, and gentle, placid temperament.",
+      "price": 1100.0,
+      "coverImage": "https://cdn2.thecatapi.com/images/KJF8fB_20.jpg",
+      "loggedDate": "2024-06-10",
+      "birthYear": "2023"
+    },
+    {
+      "id": "8h9i0j1k-2345-6f78-9012-def012345678",
+      "name": "Scottish Fold",
+      "breed": "Scottish Fold",
+      "description": "Scottish Folds are known for their unique folded ears and affectionate, playful nature.",
+      "price": 950.0,
+      "coverImage": "https://cdn2.thecatapi.com/images/1NAszGvJJ.jpg",
+      "loggedDate": "2024-06-10",
+      "birthYear": "2023"
+    },
+    {
+      "id": "9i0j1k2l-3456-7f89-0123-ef0123456789",
+      "name": "Abyssinian Cat",
+      "breed": "Abyssinian",
+      "description": "Abyssinians are known for their slender, athletic build and curious, playful nature.",
+      "price": 850.0,
+      "coverImage": "https://cdn2.thecatapi.com/images/0XYvRd7oD.jpg",
+      "loggedDate": "2024-06-10",
+      "birthYear": "2023"
+    },
+    {
+      "id": "0j1k2l3m-4567-8f90-1234-f01234567890",
+      "name": "Birman Cat",
+      "breed": "Birman",
+      "description": "Birman cats are known for their striking blue eyes, silky coat, and friendly, affectionate nature.",
+      "price": 1000.0,
+      "coverImage": "https://cdn2.thecatapi.com/images/HOrX5gwLS.jpg",
+      "loggedDate": "2024-06-10",
+      "birthYear": "2023"
+    }
+  ]
+}
