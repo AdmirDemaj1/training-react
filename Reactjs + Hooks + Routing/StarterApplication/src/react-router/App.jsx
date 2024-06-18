@@ -1,3 +1,4 @@
+import AuthenticationForm, {action as authHandler} from "../react-hhok-form/loginForms/App";
 import BookLibrary, {loader as fetchBooksList} from "../useEffect/BookLibrary";
 import BookDetails, {loader as fetchBookDetails, action as deleteCurrentBook} from "./components/BookDetailsPage";
 import BookForm from "./components/BookForm";
@@ -45,7 +46,7 @@ const router =  createBrowserRouter([
         }},
         {path:":bookId", element:<BookDetails/>, loader: fetchBookDetails , action: deleteCurrentBook  },
     ]},
-    
+    {path:"auth", element:<AuthenticationForm/>, action: authHandler}
     ],
     errorElement: <NotFound/> },
 ])

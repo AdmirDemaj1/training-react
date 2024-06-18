@@ -25,6 +25,9 @@ const Header = () => {
               <NavLink to="/books" >
                 Books
               </NavLink>
+              <NavLink to="/auth?mode=login" className={({isActive}) => (isActive ? "active" : "") } >
+                Authenticate
+              </NavLink>
             </ul>
           </nav>
         </div>
