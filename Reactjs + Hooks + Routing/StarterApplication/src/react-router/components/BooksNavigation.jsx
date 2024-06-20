@@ -1,7 +1,8 @@
 import './BooksNavigation.css';
-import { NavLink, Outlet } from 'react-router-dom';
+import { NavLink, Outlet, useRouteLoaderData } from 'react-router-dom';
 
 function BooksNavigation() {
+  const token =  useRouteLoaderData("mainRoot");
   return (
     <>
       <header className="header">
@@ -12,11 +13,12 @@ function BooksNavigation() {
                 All Books
               </NavLink>
             </li>
-            <li>
+            {token  && <li>
               <NavLink to="/books/createNew" className={({ isActive }) => (isActive ? 'active' : '')}>
                 New Book
               </NavLink>
-            </li>
+            </li> }
+           
           </ul>
         </nav>
       </header>

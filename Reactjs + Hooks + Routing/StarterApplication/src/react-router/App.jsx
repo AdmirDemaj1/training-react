@@ -1,6 +1,8 @@
 import AuthenticationForm, {action as authHandler} from "../react-hhok-form/loginForms/App";
+import { checkAuthToken, getAuthToken } from "../react-hhok-form/loginForms/util/auth";
 import BookLibrary, {loader as fetchBooksList} from "../useEffect/BookLibrary";
 import BookDetails, {loader as fetchBookDetails, action as deleteCurrentBook} from "./components/BookDetailsPage";
+import {action as logOutAction} from "./pages/Logout";
 import BookForm from "./components/BookForm";
 import BooksNavigation from "./components/BooksNavigation";
 import Header from "./components/Header";
@@ -23,11 +25,12 @@ import { createBrowserRouter, RouterProvider, useNavigate , redirect } from "rea
 
 //Relative paths
 const router =  createBrowserRouter([
-    {path:'/', element:<Header/>, children: [
+    {path:'/', element:<Header/>, id: "mainRoot" , loader: getAuthToken, children: [
     {index: true, element:<Landing />},
     {path:"books", element:<BooksNavigation/> , children: [
         {index: true, element: <BookLibrary/>, loader: fetchBooksList },
-        {path:"createNew", element:<BookForm/> , action: async ({request, params}) => {
+        {path:"createNew", element:<BookForm/> , loader: checkAuthToken, action: async ({request, params}) => {
+            const token  = getAuthToken();
             const formDataToSubmit = await request.formData();
             const bookData = {
                 title: formDataToSubmit.get('title'),
@@ -40,13 +43,14 @@ const router =  createBrowserRouter([
             }
             await fetch('http://localhost:8080/books',
                  {method: 'POST', body: JSON.stringify(bookData),
-                headers: {'Content-Type': 'application/json'}})
+                headers: {'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token}})
 
                 return redirect('/books');
         }},
         {path:":bookId", element:<BookDetails/>, loader: fetchBookDetails , action: deleteCurrentBook  },
     ]},
-    {path:"auth", element:<AuthenticationForm/>, action: authHandler}
+    {path:"auth", element:<AuthenticationForm/>, action: authHandler},
+    {path:"logout", action: logOutAction}
     ],
     errorElement: <NotFound/> },
 ])

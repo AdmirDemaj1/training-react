@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import classes from './BookItem.module.css';
-import {Link, NavLink, useParams, useSubmit} from 'react-router-dom';
+import {Link, NavLink, useParams, useRouteLoaderData, useSubmit} from 'react-router-dom';
 
 const BookItem = ({book}) => {
+  const token =  useRouteLoaderData("mainRoot");
   console.log("heyyyyy")
   const submit = useSubmit();
 
@@ -24,9 +25,10 @@ const BookItem = ({book}) => {
         <p>{book.description}</p>
         <p>{book.price}</p>
         <menu className={classes.actions}>
-          <a href="edit">Edit</a>
+          {token && <a href="edit">Edit</a>}
           <Link to="..">Go to List</Link>
-          <button onClick={handleDeleteFunction}>Delete</button>
+          {token &&  <button onClick={handleDeleteFunction}>Delete</button>}
+         
         </menu>
       </article>
     );

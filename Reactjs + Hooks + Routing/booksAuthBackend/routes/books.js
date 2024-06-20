@@ -46,11 +46,11 @@ router.post("/", async (req, res, next) => {
     errors.description = "Invalid description.";
   }
 
-  if (!isValidDate(data.date)) {
+  if (!isValidDate(data.publishYear)) {
     errors.date = "Invalid date.";
   }
 
-  if (!isValidImageUrl(data.image)) {
+  if (!isValidImageUrl(data.coverImage)) {
     errors.image = "Invalid image.";
   }
 
@@ -82,11 +82,11 @@ router.patch("/:id", async (req, res, next) => {
     errors.description = "Invalid description.";
   }
 
-  if (!isValidDate(data.date)) {
+  if (!isValidDate(data.publishYear)) {
     errors.date = "Invalid date.";
   }
 
-  if (!isValidImageUrl(data.image)) {
+  if (!isValidImageUrl(data.coverImage)) {
     errors.image = "Invalid image.";
   }
 

@@ -60,7 +60,7 @@ async function replace(id, data) {
 
 async function remove(id) {
   const storedData = await readData();
-  const updatedData = storedData.books.filter((ev) => ev.id !== id);
+  const updatedData = storedData.books.filter((ev) => ev.id !== Number(id));
   await writeData({ books: updatedData });
 }
 

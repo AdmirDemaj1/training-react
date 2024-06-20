@@ -1,8 +1,9 @@
 import React from 'react';
 import './Header.css';
-import { Link, NavLink, Outlet } from 'react-router-dom';
+import { Form, Link, NavLink, Outlet, useRouteLoaderData } from 'react-router-dom';
 
 const Header = () => {
+  const token =  useRouteLoaderData("mainRoot");
 
   return (
     <>
@@ -25,9 +26,18 @@ const Header = () => {
               <NavLink to="/books" >
                 Books
               </NavLink>
-              <NavLink to="/auth?mode=login" className={({isActive}) => (isActive ? "active" : "") } >
+              {!token ? ( <NavLink to="/auth?mode=login" className={({isActive}) => (isActive ? "active" : "") } >
                 Authenticate
-              </NavLink>
+              </NavLink>) : <Form action='/logout' method='post'><button style={{
+                backgroundColor: "transparent",
+                color: "white",
+                border: "none",
+                cursor: "pointer",
+                fontSize: "13px"
+              }}>Logout</button></Form>}
+             
+              
+              
             </ul>
           </nav>
         </div>
