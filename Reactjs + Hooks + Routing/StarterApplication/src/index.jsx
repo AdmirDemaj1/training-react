@@ -14,13 +14,16 @@ import { ThemeProvider } from "./useEffect/useContextTheme.jsx";
 // import App from "./react-router/App.jsx";
 import MuiDashboard from "./mui/MuiDashboard.jsx";
 import App from "./react-router/App.jsx";
+import MainPage from "./redux/MainPage.jsx";
+import {Provider} from 'react-redux';
+import store from "./redux/store/counterStore.js";
 // import App from "./react-hhok-form/loginForms/App.jsx";
 
 const entryPoint = document.getElementById("root");
-// ReactDOM.createRoot(entryPoint).render(
-// <App/>
-// );
-
 ReactDOM.createRoot(entryPoint).render(
-     <ThemeProvider><App/></ThemeProvider> 
-    );
+<Provider store={store}><MainPage/></Provider>
+);
+
+// ReactDOM.createRoot(entryPoint).render(
+//      <ThemeProvider><App/></ThemeProvider> 
+// );
