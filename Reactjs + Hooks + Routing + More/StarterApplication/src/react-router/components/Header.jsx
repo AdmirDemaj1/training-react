@@ -26,6 +26,7 @@ const Header = () => {
               <NavLink to="/books" >
                 Books
               </NavLink>
+            
               {!token ? ( <NavLink to="/auth?mode=login" className={({isActive}) => (isActive ? "active" : "") } >
                 Authenticate
               </NavLink>) : <Form action='/logout' method='post'><button style={{

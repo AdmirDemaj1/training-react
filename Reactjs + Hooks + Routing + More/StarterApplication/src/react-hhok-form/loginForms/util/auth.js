@@ -7,7 +7,11 @@ export function getAuthToken(){
 
 export function checkAuthToken(){
     const token = getAuthToken()
+    console.log(token)
+
     if(!token){
         return redirect("/auth")
     }
+
+    return {};
 }

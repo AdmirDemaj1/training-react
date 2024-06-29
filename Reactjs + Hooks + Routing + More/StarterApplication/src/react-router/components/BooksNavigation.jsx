@@ -18,6 +18,10 @@ function BooksNavigation() {
                 New Book
               </NavLink>
             </li> }
+            <li><NavLink to="/cartItems" >
+                Cart
+              </NavLink></li>
+            
            
           </ul>
         </nav>

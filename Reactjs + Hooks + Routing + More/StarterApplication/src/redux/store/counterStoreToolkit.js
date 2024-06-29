@@ -20,11 +20,26 @@ const counterSlice = createSlice({
     }
 })
 
+
+const authenticationSlice = createSlice({
+    name: "authentication",
+    initialState: {isAuthenticated: false},
+    reducers: {
+        login(state) {
+            state.isAuthenticated = !state.isAuthenticated;
+        },
+        logout(state) {
+            state.isAuthenticated = !state.isAuthenticated;
+        },
+    }
+})
+
 // In cases when you have multiple slices
-// const store = configureStore({reducer: {counter: counterSlice.reducer, itemsInCart: itemsInCart.reducer}})
+ const store = configureStore({reducer: {counter: counterSlice.reducer, authentication: authenticationSlice.reducer}})
 
 
 // In cases when you have only one slice
-const store = configureStore({reducer: counterSlice.reducer});
+// const store = configureStore({reducer: counterSlice.reducer});
+export const authActions = authenticationSlice.actions;
 export const counterActions = counterSlice.actions;
 export default store;

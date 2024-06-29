@@ -5,8 +5,8 @@ import  {counterActions}  from '../store/counterStoreToolkit';
 
 const Counter = () => {
     const dispatch = useDispatch();
-    const number = useSelector((state) => state.number);
-    const isDivShown = useSelector((state) => state.isDivShown);
+    const number = useSelector((state) => state.counter.number);
+    const isDivShown = useSelector((state) => state.counter.isDivShown);
     console.log(number)
     console.log(isDivShown)
     const increaseHandler = () => {

@@ -10,6 +10,7 @@ const BookDetails = () => {
   return (
     <div>
       <BookItem book={data.book} />
+   
     </div>
   );
 };
