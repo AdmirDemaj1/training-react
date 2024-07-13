@@ -14,6 +14,7 @@ A modern book shop application built using ReactJS. This application allows user
     ```bash
     npx create-react-app book-shop-app --template typescript
     cd book-shop-app
+    code .
     ```
 
     🍉 You can also use vite as build tool. Feel free to choose but I would recomend to use vite.js
@@ -60,6 +61,15 @@ A modern book shop application built using ReactJS. This application allows user
     ```
 
     Replace `your-username` with your GitHub username.
+
+    In case you see an error saying you need to provide user.name and user.email run the following commands:
+
+    ```bash
+    git config --global user.email "YOUR_GITHUB_EMAIL"
+    git config --global user.name "YOUR_GITHUB_USERNAME"
+    ```
+
+    If you accour any other error feel free to writte into our forum. 😄
 
 ## Features
 
