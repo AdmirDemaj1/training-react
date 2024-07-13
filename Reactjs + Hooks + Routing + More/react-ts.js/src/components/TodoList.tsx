@@ -8,18 +8,19 @@ interface Todo {
 }
 
 interface TodoFinalProp {
-    todoList: Todo[]
+    todoList: Todo[],
+    deleteTodo: (id: number) => void,
+    toggleTodo: (id: number) => void,
+    editTodo: (id: number, updatedText: string) => void
 }
 
-const TodoList: React.FC<TodoFinalProp> = ({todoList}) => {
+const TodoList: React.FC<TodoFinalProp> = ({todoList, deleteTodo, toggleTodo, editTodo}) => {
     return (
         <ul>
             {todoList.map((todo: Todo) => (
-               <TodoItem key={todo.id} todo={todo} foo="" bar={(name) => console.log(name)}/>
+               <TodoItem editTodo={editTodo} toggleTodo={toggleTodo} deleteTodo={deleteTodo} key={todo.id} todo={todo}/>
             ))
-
 }
-
         </ul>
     )
 }
