@@ -100,6 +100,10 @@ A modern book shop application built using ReactJS. This application allows user
 
 ## Considerations ⛔
 
+⚠️ Waittt Waitt, how to start the backend?
+Make sure to navigate to Final-Project/booksAuthBackend and run npm install and node app.js.
+Then you are ready to work on the frontend 😄.
+
 ### Signup/SignIn/Logout
 
 - If user is not authenticated by storing the authentication token in localStorage he cannot access pages like: cart, checkout, createBook, editBook ... The only page he can access is BooksList. You can achieve this by protecting routes using react-router loaders.
@@ -108,7 +112,9 @@ A modern book shop application built using ReactJS. This application allows user
 - If the login is successful store the authentication token returned by the backend into the localStorage.
 - If the user is authenticated show a button in your application so the user can also Logout.
 
-ℹ️ Endpoints:
+ℹ️ Endpoints: http://localhost:8080/login (For user to login), http://localhost:8080/signup (For the user to signup froviding the email, password and role), http://localhost:8080/update-email (For the user to update the email)
+
+For the logout there is no need for endpoints but you can just remove the authentication token from the local storage.
 
 
 ### Books List/ Books Forms
@@ -120,18 +126,21 @@ A modern book shop application built using ReactJS. This application allows user
 - There should be two forms one which allows the admin to create a book and one to edit a book.
 
 
-ℹ️ Endpoints:
+ℹ️ Endpoints: http://localhost:8080 (List of books, method: get), http://localhost:8080/:id (Get book by id), http://localhost:8080 (creates a new book but with method: post), http://localhost:8080/:id (updates a book with method patch/put), http://localhost:8080/:id  (Deletes a book based on method: delete)
+
+These endpoints are the same used also for the books list we had before. Make sure to pass the auth token for each request.
 
 
 ### User Profile
 
-- Inside the user profile the user can change the username and change the theme of the application.
+- Inside the user profile the user can change the email and change the theme of the application.
 - You can handle the theme in two ways:
     1. Using material-ui have a look at this example: https://codesandbox.io/s/g3vpfz?file=/src/Demo.js
     2. Creating styling manually both for dark and light mode and by using conditional rendering you can display the current theme. (The management of theme should be handeled by using useContext API as a global state manager).
     3. Make sure to save the theme in localStorage so when the user reloads the page the theme is not reseted.
 
-ℹ️ Endpoints:
+ℹ️ Endpoints: http://localhost:8080/update-email (For the user to update the email)
+
 
 ### Shooping Cart
 
